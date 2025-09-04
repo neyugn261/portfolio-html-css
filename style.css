@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap");
+* {
+    margin: 0; /*margin là khoảng cách bên ngoài của phần tử*/
+    padding: 0; /*padding là khoảng cách bên trong của phần tử*/
+    box-sizing: border-box; /*box-sizing xác định cách tính toán kích thước của phần tử*/
+    border: none; /*border là đường viền của phần tử*/
+    outline: none; /*outline là đường viền ngoài của phần tử, thường được sử dụng để hiển thị khi phần tử được chọn*/
+    font-family: "Poppins", sans-serif; /*font-family xác định kiểu chữ của phần tử*/
+}
+
+html {
+    font-size: 62.5%; /*1rem = 10px*/
+}
+
+body {
+    width: 100%; /* rộng bằng phần tử cha */
+    height: 100vh; /* cao bằng toàn bộ màn hình */
+    overflow-x: hidden; /*ẩn thanh cuộn ngang*/
+    background-color: black;
+    color: white; /*màu chữ là màu trắng*/
+}
+
+header {
+    margin-top: 20px; /* khoảng cách từ phần tử cha */
+    position: fixed; /* vị trí cố định */
+    top: 0;
+    left: 0;
+    width: 100%; /* rộng bằng phần tử cha */
+    padding: 1rem 9%; /* khoảng cách bên trong với 1rem 9% là 1rem trên dưới và 9% hai bên */
+    background-color: transparent; /* nền trong suốt */
+    filter: drop-shadow(10px); /*đổ bóng*/
+    display: flex;
+    justify-content: space-between; /*căn đều hai bên*/
+    align-items: center; /*căn giữa theo chiều dọc*/
+    z-index: 100;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 3rem;
+    color: #4a9d4a;
+    font-weight: 800;
+    cursor: pointer; /*con trỏ chuột khi hover vào logo sẽ biến thành hình bàn tay*/
+    transition: 0.5s ease; /*hiệu ứng chuyển đổi mượt mà trong 0.5s*/
+}
+
+.logo:hover {
+    transform: scale(1.1); /*khi hover vào logo sẽ phóng to lên 1.1 lần*/
+}
+
+nav a {
+    text-decoration: none; /* bỏ gạch chân */
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent; /* đường viền dưới của liên kết */
+}
+
+nav a:hover,
+nav a.active {
+    color: #4a9d4a;
+    border-bottom: 3px solid #4a9d4a; /* khi hover vào liên kết sẽ có đường viền dưới màu xanh */
+}
+
+@media (max-width: 995px) {
+    /* Khi chiều rộng của viewport nhỏ hơn 995px */
+    nav {
+        position: absolute; /* Đặt vị trí của nav là tuyệt đối */
+        display: none;
+        top: 0; /* Đặt nav ngay dưới header, thuộc tính top có nghĩa là khoảng cách từ trên xuống */
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #4a9d4a;
+        border-bottom: 3px solid #4a9d4a;
+        border-bottom-left-radius: 2rem; /* rem là đơn vị đo lường trong CSS, 1rem = 10px */
+        padding: 1rem solid; /* padding là khoảng cách bên trong của phần tử*/
+        background-color: #161616; /* nền đen với độ mờ 0.1 */
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+        display: block; /* hiển thị liên kết theo dạng khối */
+        margin: 3rem 0; /* khoảng cách bên ngoài của liên kết */
+        font-size: 2rem;
+    }
+
+    nav a:hover,
+    nav a.active {
+        padding: 1rem;
+        border-radius: 0.5rem; /* bo tròn các góc của liên kết */
+        border-bottom: 0.5rem solid #4a9d4a; /* đường viền dưới của liên kết */
+    }
+}
+
+section {
+    min-height: 100vh; /* chiều cao tối thiểu bằng chiều cao của viewport */
+    padding: 5rem 9%;
+}
+
+.home {
+    display: flex; /* hiển thị phần tử con theo dạng flexbox có nghĩa là các phần tử con sẽ được sắp xếp theo hàng hoặc cột */
+    justify-content: center; /* căn giữa theo chiều ngang */
+    align-items: center; /* căn giữa theo chiều dọc */
+    gap: 8rem; /* khoảng cách giữa các phần tử con */
+    background-color: black;
+}
+
+.home .home-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3; /* khoảng cách giữa các dòng */
+}
+
+span {
+    color: #4a9d4a;
+}
+
+.home-content h3 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-content p {
+    font-size: 1.6rem;
+}
+
+.home-img {
+    border-radius: 50%;
+}
+
+.home-img img {
+    position: relative;
+    width: 32vw; /* chiều rộng của hình ảnh là 32% chiều rộng của viewport */
+    border-radius: 50%; /* bo tròn các góc của hình ảnh */
+    box-shadow: 0 0 25px #4a9d4a; /* đổ bóng cho hình ảnh */
+    cursor: pointer;
+    transition: transform 0.2s linear; /* linear là kiểu chuyển đổi mượt mà */
+}
+
+.home-img img:hover {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.social-icons a {
+    display: inline-flex; /* hiển thị các liên kết trong phần tử .social-icons theo dạng flex */
+    justify-content: center; /* căn giữa theo chiều ngang */
+    align-items: center; /* căn giữa theo chiều dọc */
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #4a9d4a;
+    font-size: 2rem;
+    border-radius: 50%; /* bo tròn các góc của liên kết */
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: #4a9d4a;
+}
+
+.social-icons a:hover {
+    color: black;
+    transform: scale(1.3) translateY(-5px);
+    background-color: #4a9d4a;
+    box-shadow: 0 0 25px #4a9d4a;
+}
+
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: black;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #4a9d4a;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid #4a9d4a;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale3d(1.03);
+    background-color: #4a9d4a;
+    color: black;
+    box-shadow: 0 0 25px #4a9d4a;
+}
+
+.typing-text {
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.typing-text span {
+    position: relative;
+}
+
+.typing-text span::before {
+    /* content: "software Developer";
+    color: #b74b4b;
+    animation: words 20s infinite; */
+    content: "Student";
+    color: #4a9d4a;
+    animation: words 5s infinite;
+}
+
+.typing-text span::after {
+    content: "";
+    background-color: black;
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid black;
+    right: -8;
+    animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 3px solid #4a9d4a;
+    }
+}
+
+@keyframes words {
+    /* 0%, 20%{
+    content: "Web Developer";
+   }
+   21%, 40%{
+    content: "Developer";
+   }
+   41%, 60%{
+    content: "Web Designer";
+   }
+   61%, 80%{
+    content: "YouTuber";
+   }
+   81%, 100%{
+    content: "Script Writer";
+   } */
+    0%,
+    50% {
+        content: "Student";
+    }
+    51%,
+    100% {
+        content: "Math Teacher";
+    }
+}
+
+@media (max-width: 1000px) {
+    .home {
+        gap: 4rem; /* khoảng cách giữa các phần tử con */
+    }
+}
+
+@media (max-width: 995px) {
+    /* khi chiều rộng của viewport nhỏ hơn 995px */
+    .home {
+        flex-direction: column; /* sắp xếp các phần tử con theo cột */
+        margin: 5rem 4rem;
+    }
+
+    .home .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+    }
+}
